@@ -27,5 +27,12 @@ pipeline{
                 }
              }
             }
+         stage('docker hub push'){
+             steps{
+                script{
+                  kubernetesDeploy (configs: 'deploymentservice.yaml', kubeconfigId: 'k8sconfigpwd')
+                }
+             }
+            }            
     }
 }
